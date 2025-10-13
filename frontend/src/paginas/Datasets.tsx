@@ -173,7 +173,10 @@ export default function Datasets() {
                       </svg>
                       <span className="text-sm font-medium">Filas</span>
                     </div>
-                    <span className="text-sm font-bold text-slate-900">{dataset.filas.toLocaleString()}</span>
+                    <span className="text-sm font-bold text-slate-900">
+  {dataset.filas ? dataset.filas.toLocaleString() : '—'}
+</span>
+
                   </div>
                   <div className="flex items-center justify-between py-2.5 px-4 bg-slate-50 rounded-xl group-hover:bg-blue-50 transition-colors">
                     <div className="flex items-center space-x-2 text-slate-600">
