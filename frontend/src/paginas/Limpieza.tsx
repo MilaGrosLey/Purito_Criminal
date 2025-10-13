@@ -20,11 +20,7 @@ export default function Limpieza() {
   })
 
   const COLORES = ['#0ea5e9', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#ef4444']
-
-  useEffect(() => {
-    cargarDatos()
-  }, [id])
-
+  
   const cargarDatos = async () => {
     try {
       const [respCol, respPrev, respCorr, respDist] = await Promise.all([
@@ -41,6 +37,13 @@ export default function Limpieza() {
       console.error('Error al cargar datos:', error)
     }
   }
+useEffect(() => {
+  if (!id) return; // ✅ Evita ejecutar cargarDatos cuando el id aún no está definido
+  cargarDatos();
+}, [id]);
+
+
+
 
   const aplicarLimpieza = async () => {
     setProcesando(true)
